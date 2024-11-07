@@ -128,8 +128,8 @@ def MQTT_Connect_sta():
 
     
 scheduler = BlockingScheduler()
-#scheduler.add_job(send_data, 'interval', minutes=5)
-scheduler.add_job(send_data, 'interval', seconds=10)
+scheduler.add_job(send_data, 'interval', minutes=5, max_instances=5)
+#scheduler.add_job(send_data, 'interval', seconds=10, max_instances=5)
 
 
 try:
