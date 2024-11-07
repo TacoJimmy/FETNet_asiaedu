@@ -105,6 +105,8 @@ def FET_Publish_Station(Meter_data,access_token,timestamp):
         #time.sleep(2)
         print (mod_payload)
         data03 = client_sta.publish('/INFILINKEMS/v1/telemetry/infilink',json.dumps(mod_payload))
+        time.sleep(5)
+        print(data03)
 
 
     except:
@@ -126,8 +128,8 @@ def MQTT_Connect_sta():
 
     
 scheduler = BlockingScheduler()
-scheduler.add_job(send_data, 'interval', minutes=5)
-#scheduler.add_job(send_data, 'interval', seconds=10)
+#scheduler.add_job(send_data, 'interval', minutes=5)
+scheduler.add_job(send_data, 'interval', seconds=10)
 
 
 try:
